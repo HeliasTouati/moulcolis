@@ -28,16 +28,14 @@ class Addresses
     private ?string $city = null;
 
     /**
-     * @var Collection<int, Users>
-     */
-    #[ORM\ManyToMany(targetEntity: Users::class, mappedBy: 'addresses')]
-    private Collection $users;
-
-    /**
      * @var Collection<int, Orders>
      */
     #[ORM\OneToMany(targetEntity: Orders::class, mappedBy: 'addresses')]
     private Collection $orders;
+
+    #[ORM\ManyToOne(inversedBy: 'Addresses')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Users $users = null;
 
     public function __construct()
     {
@@ -151,6 +149,13 @@ class Addresses
                 $order->setAddresses(null);
             }
         }
+
+        return $this;
+    }
+
+    public function setUsers(?Users $users): static
+    {
+        $this->users = $users;
 
         return $this;
     }

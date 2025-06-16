@@ -1,20 +1,170 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">France<span>Maroc</span> Express</div>
+                <ul class="nav-links">
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Nos Services</a></li>
+                    <li><a href="#">Comment ça marche</a></li>
+                    <li><a href="#">Tarifs</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#" class="btn">Suivi de colis</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Votre passerelle entre la France et le Maroc</h1>
+                <p>Service de réexpédition fiable et rapide pour tous vos achats en France</p>
+                <a href="#" class="btn">Obtenir une adresse en France</a>
+                <a href="#" class="btn btn-secondary">Nos tarifs</a>
+            </div>
+        </div>
+    </section>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/home/helias/EEDN/projet_perso/app/src/Controller/MainController.php</code></li>
-        <li>Your template at <code>/home/helias/EEDN/projet_perso/app/templates/main/index.html.twig</code></li>
-    </ul>
-</div>
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pourquoi nous choisir ?</h2>
+            </div>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Adresse personnelle en France</h3>
+                    <p>Recevez une adresse française pour tous vos achats en ligne. Nous réceptionnons vos colis pour vous.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Livraison rapide</h3>
+                    <p>Expédition rapide vers le Maroc avec un délai de 3 à 7 jours ouvrables selon votre ville.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Tarifs compétitifs</h3>
+                    <p>Des prix dégressifs selon le poids et le volume, sans frais cachés ni surprises.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Sécurité garantie</h3>
+                    <p>Vos colis sont assurés et suivis en temps réel durant tout le trajet.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Suivi en temps réel</h3>
+                    <p>Suivez l'état de vos colis à tout moment grâce à notre système de tracking.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍💼</div>
+                    <h3>Service client dédié</h3>
+                    <p>Une équipe disponible pour répondre à toutes vos questions en français et en arabe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>Comment ça marche ?</h2>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <h3>Inscription</h3>
+                    <p>Créez votre compte et obtenez votre adresse française personnelle</p>
+                </div>
+                <div class="step">
+                    <h3>Achats</h3>
+                    <p>Utilisez cette adresse lors de vos achats en ligne en France</p>
+                </div>
+                <div class="step">
+                    <h3>Réception</h3>
+                    <p>Nous recevons vos colis et vous informons de leur arrivée</p>
+                </div>
+                <div class="step">
+                    <h3>Livraison</h3>
+                    <p>Nous expédions vos colis au Maroc directement à votre adresse</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ce que disent nos clients</h2>
+            </div>
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Service impeccable ! Mes colis arrivent toujours en parfait état et dans les délais annoncés. Je recommande vivement."</p>
+                    <p class="testimonial-author">- Ahmed K., Casablanca</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Enfin une solution fiable pour faire livrer mes achats français au Maroc. Le service client est réactif et très professionnel."</p>
+                    <p class="testimonial-author">- Fatima B., Rabat</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Je fais régulièrement appel à leurs services pour mon entreprise. Rapport qualité-prix imbattable et service irréprochable."</p>
+                    <p class="testimonial-author">- Youssef M., Marrakech</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Prêt à commencer ?</h2>
+            <p>Inscrivez-vous dès maintenant et obtenez votre adresse française en quelques minutes. Premier envoi à -50% !</p>
+            <a href="#" class="btn">Créer mon compte</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>FranceMaroc Express</h3>
+                    <p>Service de réexpédition de la France vers le Maroc, rapide, fiable et sécurisé.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens utiles</h3>
+                    <ul>
+                        <li><a href="#">Nos services</a></li>
+                        <li><a href="#">Tarifs et estimations</a></li>
+                        <li><a href="#">Comment ça marche</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Informations légales</h3>
+                    <ul>
+                        <li><a href="#">Conditions générales</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>contact@francemaroc-express.com</li>
+                        <li>+33 1 23 45 67 89 (France)</li>
+                        <li>+212 5 22 XX XX XX (Maroc)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FranceMaroc Express. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    </body>
 {% endblock %}

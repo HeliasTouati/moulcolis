@@ -54,13 +54,19 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var Collection<int, Addresses>
      */
-    #[ORM\ManyToMany(targetEntity: Addresses::class, inversedBy: 'users')]
-    private Collection $addresses;
+    #[ORM\OneToMany(targetEntity: Addresses::class, mappedBy: 'users', orphanRemoval: true)]
+    private Collection $Addresses;
+
+    /**
+     * @var Collection<int, Addresses>
+     */
+
 
     public function __construct()
     {
         $this->orders = new ArrayCollection();
         $this->addresses = new ArrayCollection();
+        $this->Addresses = new ArrayCollection();
     }
 
     public function getId(): ?int
