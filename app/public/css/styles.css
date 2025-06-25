@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #006233; /* Vert du drapeau marocain */
+    --primary-color: #094909; /* Vert du drapeau marocain */
     --secondary-color: #c1272d; /* Rouge du drapeau marocain */
     --accent-color: #0055a4; /* Bleu pour représenter drapeau français */
     --light-color: #ffffff;
@@ -281,6 +281,39 @@ footer{
         padding: 30px;
     }
 }
+
+.form{
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    .form-container{
+        display: flex;
+        background-color: #f8f9fa;
+        border-radius: 15px;
+        margin: 50px;
+
+        .form-content{
+                padding: 20px;
+            h1{
+                font-size: 3rem;
+                margin: 30px;
+
+            }
+        }
+
+        .form-infos{
+            background: linear-gradient(135deg, #049a04 0%, var(--primary-color) 100%);
+            padding: 20px;
+            border-radius:  0 15px 15px 0;
+            color: #FFFFFF;
+        }
+    }
+
+}
+
 
 
 

@@ -26,6 +26,7 @@ final class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid())
         {
             $user->setCreatedAt(new \DateTimeImmutable());
+            $user->setUpdatedAt(new \DateTimeImmutable());
             $user->setPassword($userPasswordHasher->hashPassword($user, $user->getPassword()));
             $entityManager->persist($user);
             $entityManager->flush();

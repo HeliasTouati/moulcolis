@@ -1,9 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LoginController!{% endblock %}
+{% block title %}Moul Colis - Page d'inscription{% endblock %}
 
 {% block body %}
-<h1> Formulaire d'inscription </h1>
-    {{ form(form) }}
+    <section class="form">
+        <div class="form-container">
+                <div class="form-content">
+            <h1> S'inscrire </h1>
+                    {{ form(form) }}
+                    <p>Deja inscrit? <a href="index.html.twig">Connectez-vous ici</a> </p>
+                </div>
+                <div class="form-infos">
+                    <h2 class="info-description">
+                        Faites vos achats sur des sites francais.
+                    </h2>
+                    <ul class="info-features">
+                        <li>Suivi en temps réel de vos colis</li>
+                        <li>Historique de tous vos envois</li>
+                        <li>Gestion de votre adresse française</li>
+                        <li>Demandes d'expédition simplifiées</li>
+                        <li>Facturation et paiements sécurisés</li>
+                        <li>Support client prioritaire</li>
+                    </ul>
+                </div>
+        </div>
+    </section>
 
 {% endblock %}
