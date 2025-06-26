@@ -289,6 +289,7 @@ footer{
     justify-content: center;
     align-items: center;
     height: 90vh;
+    font-size: 1.5rem;
     .form-container{
         display: flex;
         background-color: #f8f9fa;
@@ -296,11 +297,13 @@ footer{
         margin: 50px;
 
         .form-content{
-                padding: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             h1{
                 font-size: 3rem;
                 margin: 30px;
-
             }
         }
 
@@ -309,9 +312,180 @@ footer{
             padding: 20px;
             border-radius:  0 15px 15px 0;
             color: #FFFFFF;
+
+            .info-features{
+            display: flex;
+                flex-direction: column;
+            align-items: self-start;
+                gap: 20px;
+                margin: 50px;
+                list-style: none;
+
+
+            }
         }
+
+
+
+
     }
 
+}
+
+/* Styles pour le formulaire d'inscription */
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--dark-color);
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    padding: 15px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(9, 73, 9, 0.1);
+}
+
+.form-control:hover {
+    border-color: #c1c7cd;
+}
+
+
+
+.email-group .form-control {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 45px;
+}
+
+.password-group .form-control {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 45px;
+}
+
+.firstname-group .form-control,
+.lastname-group .form-control {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 45px;
+}
+
+/* Styles pour la checkbox des conditions */
+.terms-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.form-check-input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: var(--primary-color);
+}
+
+.form-check-label {
+    font-size: 0.95rem;
+    color: #666;
+    cursor: pointer;
+    line-height: 1.4;
+}
+
+.form-check-label:hover {
+    color: var(--primary-color);
+}
+
+/* Styles pour le bouton de soumission */
+.submit-group {
+    margin-top: 20px;
+}
+
+.btn-register {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-register:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(9, 73, 9, 0.3);
+}
+
+.btn-register:active {
+    transform: translateY(0);
+}
+
+/* Animation pour les erreurs de validation */
+.form-control.is-invalid {
+    border-color: var(--secondary-color);
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Messages d'erreur */
+.invalid-feedback {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* Lien de connexion */
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+    font-size: 1rem;
+}
+
+.login-link a {
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
 }
 
 

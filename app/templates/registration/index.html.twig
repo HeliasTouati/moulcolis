@@ -5,25 +5,70 @@
 {% block body %}
     <section class="form">
         <div class="form-container">
-                <div class="form-content">
-            <h1> S'inscrire </h1>
-                    {{ form(form) }}
-                    <p>Deja inscrit? <a href="index.html.twig">Connectez-vous ici</a> </p>
+            <div class="form-content">
+                <h1>S'inscrire</h1>
+
+                {{ form_start(form, {'attr': {'class': 'registration-form'}}) }}
+
+                <div class="form-group email-group">
+                    {{ form_row(form.email, {
+                        'label_attr': {'class': 'form-label'},
+                        'attr': {'class': 'form-control'}
+                    }) }}
                 </div>
-                <div class="form-infos">
-                    <h2 class="info-description">
-                        Faites vos achats sur des sites francais.
-                    </h2>
-                    <ul class="info-features">
-                        <li>Suivi en temps réel de vos colis</li>
-                        <li>Historique de tous vos envois</li>
-                        <li>Gestion de votre adresse française</li>
-                        <li>Demandes d'expédition simplifiées</li>
-                        <li>Facturation et paiements sécurisés</li>
-                        <li>Support client prioritaire</li>
-                    </ul>
+
+                <div class="form-group password-group">
+                    {{ form_row(form.password, {
+                        'label_attr': {'class': 'form-label'},
+                        'attr': {'class': 'form-control'}
+                    }) }}
                 </div>
+
+                <div class="form-group firstname-group">
+                    {{ form_row(form.firstname, {
+                        'label_attr': {'class': 'form-label'},
+                        'attr': {'class': 'form-control'}
+                    }) }}
+                </div>
+
+                <div class="form-group lastname-group">
+                    {{ form_row(form.lastname, {
+                        'label_attr': {'class': 'form-label'},
+                        'attr': {'class': 'form-control'}
+                    }) }}
+                </div>
+
+                <div class="form-group terms-group">
+                    {{ form_row(form.agreeTerms, {
+                        'label_attr': {'class': 'form-check-label'},
+                        'attr': {'class': 'form-check-input'}
+                    }) }}
+                </div>
+
+                <div class="form-group submit-group">
+                    {{ form_row(form.submit, {
+                        'attr': {'class': 'btn btn-primary btn-register'}
+                    }) }}
+                </div>
+
+                {{ form_end(form) }}
+
+                <p class="login-link">Déjà inscrit? <a href="{{ path('app_login') }}">Connectez-vous ici</a></p>
+            </div>
+
+            <div class="form-infos">
+                <h2 class="info-description">
+                    Faites vos achats sur des sites français.
+                </h2>
+                <ul class="info-features">
+                    <li>Suivi en temps réel de vos colis</li>
+                    <li>Historique de tous vos envois</li>
+                    <li>Gestion de votre adresse française</li>
+                    <li>Demandes d'expédition simplifiées</li>
+                    <li>Facturation et paiements sécurisés</li>
+                    <li>Support client prioritaire</li>
+                </ul>
+            </div>
         </div>
     </section>
-
 {% endblock %}
