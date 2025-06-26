@@ -30,7 +30,7 @@ final class RegistrationController extends AbstractController
             $user->setPassword($userPasswordHasher->hashPassword($user, $user->getPassword()));
             $entityManager->persist($user);
             $entityManager->flush();
-            return $this->redirectToRoute('app_main');
+            return $this->redirectToRoute('app_profil');
         }
         return $this->render('registration/index.html.twig', [
             "form" => $form,

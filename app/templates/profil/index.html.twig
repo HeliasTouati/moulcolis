@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon profil{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="mb-4">Tableau de bord</h1>
+    <div class="dashboard">
+        <div class="dashboard-module" id="personal-info">
+            <h2>Informations personnelles</h2>
+            <ul class="list-unstyled">
+                <li><strong>Nom :</strong> {{ app.user.lastname }}</li>
+                <li><strong>Prénom :</strong> {{ app.user.firstname }}</li>
+                <li><strong>Email :</strong> {{ app.user.email }}</li>
+            </ul>
+            <a href="#" class="btn btn-sm btn-outline-primary mt-2">Modifier</a>
+            <h2>Mes adresses</h2>
+             {% for adresse in app.user.addresses  %}
+                 <h3>Adresse {{ loop.index }}</h3>
+            <ul class="list-unstyled">
+                {{ form(AddressesForm) }}
+                <li><strong>Adresse:</strong> {{ adresse.address}}</li>
+                <li><strong>Code postal</strong> {{ adresse.zipcode }}</li>
+                <li><strong>Ville</strong> {{ adresse.city }}</li>
+                <li><strong>Pays</strong> {{ adresse.country }}</li>
+            </ul>
+                 {% else  %}
+                 <p> Pas encore d'adresse</p>
+            {%  endfor %}
+        </div>
+        <div class="dashboard-module" id="orders">
+            <h2>Mes commandes</h2>
+            {% if orders is defined and orders|length > 0 %}
+                <ul class="list-group">
+                    {% for order in orders %}
+                        <li class="list-group-item">
+                            <strong>Commande n°{{ order.id }}</strong> - {{ order.status_payment }}<br>
+                            Montant : {{ order.price }} €<br>
+                            Date : {{ order.payment_at|date('d/m/Y') }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Aucune commande pour le moment.</p>
+            {% endif %}
+            <a href="#" class="btn btn-sm btn-outline-secondary mt-2">Voir toutes mes commandes</a>
+        </div>
+    </div>
+</div>
+{% endblock body %}

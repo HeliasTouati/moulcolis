@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Connexion - MonApp{% endblock %}
+{% block title %}Moul Colis - Connexion{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -15,7 +15,7 @@
 
                 {% if error %}
                     <div class="alert">
-                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                        Identifiants incorrects. Veuillez vérifier votre email et mot de passe.
                     </div>
                 {% endif %}
 
@@ -65,7 +65,7 @@
                     </div>
 
 
-                    <button class="btn" type="submit">
+                    <button class="btn" type="submit" href="{{ path('app_profil') }}">
                         Se connecter
                     </button>
                 </form>

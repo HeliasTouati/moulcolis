@@ -14,7 +14,7 @@ class LoginController extends AbstractController
     {
         // Si l'utilisateur est déjà connecté, rediriger
         if ($this->getUser()) {
-            return $this->redirectToRoute('app_main');
+            return $this->redirectToRoute('app_profil');
         }
 
         // Récupérer l'erreur de connexion s'il y en a une
@@ -23,10 +23,16 @@ class LoginController extends AbstractController
         // Dernier nom d'utilisateur saisi
         $lastUsername = $authenticationUtils->getLastUsername();
 
+        $redirect = $this->generateUrl('app_profil');
+
+
         return $this->render('login/login.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error,
+            'redirect' => $redirect,
         ]);
+
+
     }
 
     #[Route(path: '/logout', name: 'app_logout')]
