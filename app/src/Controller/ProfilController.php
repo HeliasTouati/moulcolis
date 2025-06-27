@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Addresses;
 use App\Form\AddressesForm;
+use App\Repository\AddressesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,9 +14,11 @@ use Symfony\Component\Routing\Attribute\Route;
 final class ProfilController extends AbstractController
 {
     #[Route('/profil', name: 'app_profil')]
-    public function index(Request $request, EntityManagerInterface $entityManager): Response
+    public function index(Request $request, EntityManagerInterface $entityManager, AddressesRepository $addressesRepository): Response
     {
+
         return $this->render('profil/index.html.twig', [
+            'address' => $addressesRepository->findAll(),
         ]);
     }
 

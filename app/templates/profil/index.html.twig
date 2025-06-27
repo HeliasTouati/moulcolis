@@ -24,10 +24,14 @@
                 <li><strong>Ville</strong> {{ adresse.city }}</li>
                 <li><strong>Pays</strong> {{ adresse.country }}</li>
             </ul>
+
+                 <a href="{{ path('app_addresses_edit', {'id': adresse.id}) }} " class="btn btn-sm btn-outline-secondary mt-2">Modifier</a>
+                 <a href="{{ path('app_addresses_delete', {'id': adresse.id}) }} " class="btn btn-sm btn-outline-secondary mt-2">Supprimer</a>
+
                  {% else  %}
                  <p> Pas encore d'adresse</p>
             {%  endfor %}
-            <a href="{{ path('app_profil_addresses')}}" class="btn btn-sm btn-outline-secondary mt-2">Ajouter une adresse </a>
+            <a href="{{ path('app_addresses_new')}}" class="btn btn-sm btn-outline-secondary mt-2">Ajouter une adresse </a>
         </div>
         <div class="dashboard-module" id="orders">
             <h2>Mes commandes</h2>
