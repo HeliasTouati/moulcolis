@@ -18,7 +18,7 @@
              {% for adresse in app.user.addresses  %}
                  <h3>Adresse {{ loop.index }}</h3>
             <ul class="list-unstyled">
-                {{ form(AddressesForm) }}
+
                 <li><strong>Adresse:</strong> {{ adresse.address}}</li>
                 <li><strong>Code postal</strong> {{ adresse.zipcode }}</li>
                 <li><strong>Ville</strong> {{ adresse.city }}</li>
@@ -27,6 +27,7 @@
                  {% else  %}
                  <p> Pas encore d'adresse</p>
             {%  endfor %}
+            <a href="{{ path('app_profil_addresses')}}" class="btn btn-sm btn-outline-secondary mt-2">Ajouter une adresse </a>
         </div>
         <div class="dashboard-module" id="orders">
             <h2>Mes commandes</h2>

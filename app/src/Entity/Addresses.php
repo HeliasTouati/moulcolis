@@ -33,13 +33,12 @@ class Addresses
     #[ORM\OneToMany(targetEntity: Orders::class, mappedBy: 'addresses')]
     private Collection $orders;
 
-    #[ORM\ManyToOne(inversedBy: 'Addresses')]
+    #[ORM\ManyToOne(inversedBy: 'addresses')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Users $users = null;
 
     public function __construct()
     {
-        $this->users = new ArrayCollection();
         $this->orders = new ArrayCollection();
     }
 
