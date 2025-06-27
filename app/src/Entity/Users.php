@@ -242,4 +242,12 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    public function contains(Users $user)
+    {
+    }
+
+    public function add(Users $user)
+    {
+    }
 }

@@ -96,9 +96,9 @@ class Addresses
     }
 
     /**
-     * @return Collection<int, Users>
+     * @return Users
      */
-    public function getUsers(): Collection
+    public function getUsers(): Users
     {
         return $this->users;
     }
