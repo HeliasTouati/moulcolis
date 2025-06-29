@@ -62,7 +62,7 @@ final class AddressesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_addresses_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_profil', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('addresses/edit.html.twig', [
@@ -79,6 +79,6 @@ final class AddressesController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_addresses_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_profil', [], Response::HTTP_SEE_OTHER);
     }
 }
