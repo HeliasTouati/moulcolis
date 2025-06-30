@@ -12,8 +12,10 @@
                 <li><strong>Nom :</strong> {{ app.user.lastname }}</li>
                 <li><strong>Prénom :</strong> {{ app.user.firstname }}</li>
                 <li><strong>Email :</strong> {{ app.user.email }}</li>
+                <li><strong>Numero de telephone :</strong> {{ app.user.phoneNumber }}</li>
             </ul>
-            <a href="#" class="btn btn-sm btn-outline-primary mt-2">Modifier</a>
+            <a href="{{ path('app_profil_edit') }}" class="btn btn-sm btn-outline-primary mt-2">Modifier</a>
+            <a href="{{ path('app_change_password') }}" class="btn btn-sm btn-outline-primary mt-2">Modifier mon mot de passe</a>
             <h2>Mes adresses</h2>
              {% for adresse in app.user.addresses  %}
                  <h3>Adresse {{ loop.index }}</h3>

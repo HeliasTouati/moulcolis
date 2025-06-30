@@ -57,6 +57,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Addresses::class, mappedBy: 'users', orphanRemoval: true)]
     private Collection $addresses;
 
+    #[ORM\Column(length: 15)]
+    private ?string $phone_number;
+
     /**
      * @var Collection<int, Addresses>
      */
@@ -249,5 +252,17 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function add(Users $user)
     {
+    }
+
+    public function getPhoneNumber(): ?string
+    {
+        return $this->phone_number;
+    }
+
+    public function setPhoneNumber(string $phone_number): static
+    {
+        $this->phone_number = $phone_number;
+
+        return $this;
     }
 }
