@@ -7,6 +7,7 @@ use App\Form\AddressesForm;
 use App\Form\ChangePasswordForm;
 use App\Form\UsersForm;
 use App\Repository\AddressesRepository;
+use App\Repository\OrdersRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,32 +18,38 @@ use Symfony\Component\Routing\Attribute\Route;
 final class ProfilController extends AbstractController
 {
     #[Route('/profil', name: 'app_profil')]
-    public function index(Request $request, EntityManagerInterface $entityManager, AddressesRepository $addressesRepository): Response
+    public function index(Request $request, EntityManagerInterface $entityManager, AddressesRepository $addressesRepository, OrdersRepository $ordersRepository): Response
     {
+        $currentUser = $this->getUser();
+
+        // Récupérer les commandes de l'utilisateur connecté
+        // Remplacez 'users' par le nom exact de la propriété dans votre entité Orders
+        $orders = $ordersRepository->findBy(['users' => $currentUser], ['payment_at' => 'DESC']);
 
         return $this->render('profil/index.html.twig', [
             'address' => $addressesRepository->findAll(),
+            'orders' => $orders, // Passer les commandes à la vue
         ]);
     }
 
     #[Route('/profil/addresses', name: 'app_profil_addresses')]
     public function addresses(Request $request, EntityManagerInterface $entityManager): Response
     {
-      $adresse = new Addresses();
-      $currentUser = $this->getUser();
-      $form = $this->createForm(AddressesForm::class, $adresse, [
-          'current_user' => $currentUser
-      ]);
-      $form->handleRequest($request);
+        $adresse = new Addresses();
+        $currentUser = $this->getUser();
+        $form = $this->createForm(AddressesForm::class, $adresse, [
+            'current_user' => $currentUser
+        ]);
+        $form->handleRequest($request);
 
 
-      if ($form->isSubmitted() && $form->isValid())
-      {
-          $adresse->setUsers($currentUser);
-          $entityManager->persist($adresse);
-          $entityManager->flush();
-          return $this->redirectToRoute('app_profil');
-      }
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $adresse->setUsers($currentUser);
+            $entityManager->persist($adresse);
+            $entityManager->flush();
+            return $this->redirectToRoute('app_profil');
+        }
 
         return $this->render('profil/addresses.html.twig', [
             'form' => $form,
@@ -108,6 +115,16 @@ final class ProfilController extends AbstractController
 
         return $this->render('users/change_password.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/profil/commandes',name: 'app_orders_index', methods: ['GET'])]
+    public function indexOrders(OrdersRepository $ordersRepository): Response
+    {
+        $currentUser = $this->getUser();
+
+        return $this->render('orders/index.html.twig', [
+            'orders' => $ordersRepository->findBy(['users' => $currentUser], ['payment_at' => 'DESC']),
         ]);
     }
 }

@@ -3,3 +3,24 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+# config/routes.yaml
+stripe_checkout:
+    path: /stripe/checkout
+    controller: App\Controller\StripeController::checkout
+    methods: [POST]
+
+stripe_success:
+    path: /stripe/success
+    controller: App\Controller\StripeController::success
+    methods: [GET]
+
+stripe_cancel:
+    path: /stripe/cancel
+    controller: App\Controller\StripeController::cancel
+    methods: [GET]
+
+stripe_webhook:
+    path: /stripe/webhook
+    controller: App\Controller\StripeController::webhook
+    methods: [POST]

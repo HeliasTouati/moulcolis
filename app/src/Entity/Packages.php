@@ -19,9 +19,9 @@ class Packages
     private ?int $poids_kg = null;
 
     #[ORM\Column]
-    private ?int $dimensions_cm = null;
+    private ?string $dimensions_cm = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $reception_at = null;
 
     #[ORM\Column(length: 50)]
@@ -58,12 +58,12 @@ class Packages
         return $this;
     }
 
-    public function getDimensionsCm(): ?int
+    public function getDimensionsCm(): ?string
     {
         return $this->dimensions_cm;
     }
 
-    public function setDimensionsCm(int $dimensions_cm): static
+    public function setDimensionsCm(?string $dimensions_cm): static
     {
         $this->dimensions_cm = $dimensions_cm;
 
@@ -135,4 +135,6 @@ class Packages
 
         return $this;
     }
+
+
 }

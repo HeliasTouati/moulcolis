@@ -33,7 +33,7 @@
                  {% else  %}
                  <p> Pas encore d'adresse</p>
             {%  endfor %}
-            <a href="{{ path('app_addresses_new')}}" class="btn btn-sm btn-outline-secondary mt-2">Ajouter une adresse </a>
+            <a href="{{ path('app_addresses_new') }}" class="btn btn-sm btn-outline-secondary mt-2">Ajouter une adresse </a>
         </div>
         <div class="dashboard-module" id="orders">
             <h2>Mes commandes</h2>
@@ -41,16 +41,24 @@
                 <ul class="list-group">
                     {% for order in orders %}
                         <li class="list-group-item">
-                            <strong>Commande n°{{ order.id }}</strong> - {{ order.status_payment }}<br>
-                            Montant : {{ order.price }} €<br>
-                            Date : {{ order.payment_at|date('d/m/Y') }}
+                           <div><strong>Commande n°{{ order.id }}</strong> - {{ order.statusPayment }}</div>
+                            <div>Montant : {{ order.price }} €</div>
+                            <div>Date : {{ order.paymentAt|date('d/m/Y') }}</div>
+                            <div>Colis:
+                                {% if order.packages|length > 0 %}
+                                    {{ order.packages.first.reference }}
+                                {% else %}
+                                    Aucun colis
+                                {% endif %}
+                            </div>
                         </li>
                     {% endfor %}
                 </ul>
             {% else %}
                 <p>Aucune commande pour le moment.</p>
             {% endif %}
-            <a href="#" class="btn btn-sm btn-outline-secondary mt-2">Voir toutes mes commandes</a>
+            <a href="{{ path('app_orders_new')}}" class="btn btn-sm btn-outline-secondary mt-2">Passer une commande</a>
+
         </div>
     </div>
 </div>
