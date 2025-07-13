@@ -136,5 +136,16 @@ class Packages
         return $this;
     }
 
+    public function getPrice(): int
+    {
+        // 4,99€ jusqu'à 3kg, puis +2€ par kg supplémentaire
+        $base = 499; // 4,99€ en centimes
+        $poids = $this->getPoidsKg() ?? 0;
+        if ($poids > 3) {
+            $base += (int) ceil($poids - 3) * 200; // 2€ (200 centimes) par kg supplémentaire
+        }
+        return $base;
+    }
+
 
 }

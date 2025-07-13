@@ -33,6 +33,7 @@ final class OrdersController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $order->setPrice("4.99");
             $entityManager->persist($order);
             $entityManager->flush();
 

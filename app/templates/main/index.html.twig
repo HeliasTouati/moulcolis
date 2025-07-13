@@ -2,6 +2,10 @@
 
 {% block title %}Moul Colis - Service de réexpédition{% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/carousel.js') }}" defer></script>
+{% endblock %}
 
 {% block body %}
 
@@ -11,7 +15,6 @@
                 <h2 id="hero-subtitle"> Service de réexpédition fiable et rapide pour tous vos achats en France</h2>
                     <div>
                         <a href="{{ path("app_registration") }}" class="btn" aria-describedby="hero-subtitle">Obtenir une adresse en France</a>
-                        <a href="#" class="btn btn-secondary" aria-label="Consulter nos tarifs détaillés">Nos tarifs</a>
                     </div>
         </section>
 
@@ -94,7 +97,7 @@
             <div class="container">
                 <h2 id="cta-title">Prêt à commencer ?</h2>
                 <p>Inscrivez-vous dès maintenant et obtenez votre adresse française en quelques minutes. Premier envoi à -50% !</p>
-                <a href="#" class="btn" aria-label="Créer votre compte pour bénéficier de l'offre à -50%">Créer mon compte</a>
+                <a href="{{ path("app_registration") }}" class="btn" aria-label="Créer votre compte pour bénéficier de l'offre à -50%">Créer mon compte</a>
             </div>
         </section>
     </main>
@@ -102,7 +105,4 @@
 
 {% endblock %}
 
-{% block javascripts %}
-    {{ parent() }}
-    <script src="/js/carousel.js"></script>
-{% endblock %}
+

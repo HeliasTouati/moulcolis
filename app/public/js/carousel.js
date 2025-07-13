@@ -1,9 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const steps = document.querySelectorAll('.step');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const indicators = document.getElementById('indicators');
-    let currentStep = 0;
+const steps = document.querySelectorAll('.step');
+const prevBtn = document.querySelector('#prevBtn');
+const nextBtn = document.querySelector('#nextBtn');
+const indicators = document.querySelector('#indicators');
+let currentStep = 0;
 
     function updateCarousel() {
         steps.forEach((step, idx) => {
@@ -37,4 +36,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     updateCarousel();
-}); 
+;

@@ -4,11 +4,11 @@
 
 {% block body %}
 <div class="container mt-5">
-    <h1 class="mb-4">Tableau de bord</h1>
+    <h1>Tableau de bord</h1>
     <div class="dashboard">
         <div class="dashboard-module" id="personal-info">
             <h2>Informations personnelles</h2>
-            <ul class="list-unstyled">
+            <ul>
                 <li><strong>Nom :</strong> {{ app.user.lastname }}</li>
                 <li><strong>Prénom :</strong> {{ app.user.firstname }}</li>
                 <li><strong>Email :</strong> {{ app.user.email }}</li>
@@ -19,7 +19,7 @@
             <h2>Mes adresses</h2>
              {% for adresse in app.user.addresses  %}
                  <h3>Adresse {{ loop.index }}</h3>
-            <ul class="list-unstyled">
+            <ul>
 
                 <li><strong>Adresse:</strong> {{ adresse.address}}</li>
                 <li><strong>Code postal</strong> {{ adresse.zipcode }}</li>
@@ -27,13 +27,13 @@
                 <li><strong>Pays</strong> {{ adresse.country }}</li>
             </ul>
 
-                 <a href="{{ path('app_addresses_edit', {'id': adresse.id}) }} " class="btn btn-sm btn-outline-secondary mt-2">Modifier</a>
+                 <a href="{{ path('app_addresses_edit', {'id': adresse.id}) }} " class="btn btn-sm btn-outline-primary mt-2">Modifier</a>
                  <a href="{{ path('app_addresses_delete', {'id': adresse.id}) }} " class="btn btn-sm btn-outline-secondary mt-2">Supprimer</a>
 
                  {% else  %}
                  <p> Pas encore d'adresse</p>
             {%  endfor %}
-            <a href="{{ path('app_addresses_new') }}" class="btn btn-sm btn-outline-secondary mt-2">Ajouter une adresse </a>
+            <a href="{{ path('app_addresses_new') }}" class="btn btn-sm btn-outline-primary mt-2">Ajouter une adresse </a>
         </div>
         <div class="dashboard-module" id="orders">
             <h2>Mes commandes</h2>
@@ -57,7 +57,7 @@
             {% else %}
                 <p>Aucune commande pour le moment.</p>
             {% endif %}
-            <a href="{{ path('app_orders_new')}}" class="btn btn-sm btn-outline-secondary mt-2">Passer une commande</a>
+            <a href="{{ path('app_orders_new')}}" class="btn btn-sm btn-outline-primary mt-2">Passer une commande</a>
 
         </div>
     </div>

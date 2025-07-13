@@ -37,19 +37,26 @@ final class PackagesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $package->setOrders($order);
-
             $entityManager->persist($package);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_payment', [], Response::HTTP_SEE_OTHER);
+            // Redirige vers la page de paiement dédiée
+            return $this->redirectToRoute('app_packages_pay', ['id' => $package->getId()]);
         }
 
         return $this->render('packages/new.html.twig', [
             'package' => $package,
             'form' => $form,
             'order' => $order,
+        ]);
+    }
+
+    #[Route('/{id}/pay', name: 'app_packages_pay', methods: ['GET'])]
+    public function pay(Packages $package): Response
+    {
+        return $this->render('packages/pay.html.twig', [
+            'package' => $package,
         ]);
     }
 
