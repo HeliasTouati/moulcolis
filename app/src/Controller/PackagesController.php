@@ -38,6 +38,9 @@ final class PackagesController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $package->setOrders($order);
+
+            $order->setPrice($package->getPrice() / 100);
+            
             $entityManager->persist($package);
             $entityManager->flush();
 

@@ -27,12 +27,12 @@ final class AddressesController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $address = new Addresses();
-        $currentUser = $this->getUser();
         $form = $this->createForm(AddressesForm::class, $address);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $address->setUsers($currentUser);
+             $currentUser = $this->getUser();
+             $address->setUsers($currentUser);
             $entityManager->persist($address);
             $entityManager->flush();
 

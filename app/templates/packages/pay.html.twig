@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement du colis{% endblock %}
+
+{% block body %}
+    <h1>Paiement du colis #{{ package.id }}</h1>
+    <p>Référence : {{ package.reference }}</p>
+    <p>Poids : {{ package.poidsKg }} kg</p>
+    <p>Dimensions : {{ package.dimensionsCm }}</p>
+    <form action="{{ path('stripe_checkout') }}" method="POST">
+        <input type="hidden" name="packageId" value="{{ package.id }}">
+        <button type="submit" class="btn btn-primary btn-lg mt-3">Payer avec Stripe</button>
+    </form>
+{% endblock %} 

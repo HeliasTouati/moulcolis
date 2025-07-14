@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement réussi{% endblock %}
+
+{% block body %}
+    <h1>Paiement réussi !</h1>
+    <p>Merci pour votre commande. Votre paiement a bien été pris en compte.</p>
+    <a href="{{ path('app_profil') }}" class="btn btn-primary mt-3">Retour sur ma page profil</a>
+{% endblock %}
